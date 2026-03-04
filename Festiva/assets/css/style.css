@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0F172A;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    transition: 0.4s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0,0,0,0.9);
+    padding: 15px 10%;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #FFD93D;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #FFD93D;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #FFD93D;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+                url('../images/diwali/diwali-hero.jpg') no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #FF6B6B, #FFD93D);
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.4s;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255,217,61,0.6);
+}
+
+/* ================= PAGE HEADER ================= */
+
+.page-header {
+    padding-top: 150px;
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.page-header h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    color: #ccc;
+    font-size: 18px;
+}
+
+/* ================= FESTIVAL SECTION ================= */
+
+.festivals {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.festival-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.festival-card {
+    background: #1E293B;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s ease;
+    text-decoration: none;
+    color: #fff;
+}
+
+.festival-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.festival-card h3 {
+    padding: 15px;
+}
+
+.festival-card:hover img {
+    transform: scale(1.1);
+}
+
+.festival-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+}
+
+/* ================= CARD GALLERY ================= */
+
+.card-gallery {
+    padding: 100px 10%;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card-item {
+    background: #1E293B;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s;
+    text-align: center;
+}
+
+.card-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #000;
+    margin-top: 50px;
+}
+
+/* ================= ANIMATIONS ================= */
+
+.firework {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 20px red, 0 0 40px orange, 0 0 60px yellow;
+    animation: explode 1s ease-out forwards;
+    z-index: 9999;
+}
+
+@keyframes explode {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(8); opacity: 0; }
+}
+
+.snow {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: fall linear forwards;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); opacity: 0; }
+}
+
+.splash {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: splashAnim 1s ease-out forwards;
+}
+
+@keyframes splashAnim {
+    to { transform: scale(10); opacity: 0; }
+}
+
+.moon {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #fff, #ccc);
+    border-radius: 50%;
+    animation: moonFade 3s infinite alternate;
+}
+
+@keyframes moonFade {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+.glow {
+    animation: glowEffect 2s infinite alternate;
+}
+
+@keyframes glowEffect {
+    from { text-shadow: 0 0 10px #FFD93D; }
+    to { text-shadow: 0 0 25px #FF6B6B; }
+}
+
+.rotate {
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.fade-in {
+    animation: fadeInUp 2s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.kite {
+    position: absolute;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0F172A;
+}
+::-webkit-scrollbar-thumb {
+    background: #FFD93D;
+    border-radius: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 1024px) {
+    .hero-content h1 { font-size: 40px; }
+}
+
+@media(max-width: 768px) {
+    .navbar { flex-direction: column; }
+    .nav-links { margin-top: 15px; }
+    .hero-content h1 { font-size: 30px; }
+}
+
+@media(max-width: 480px) {
+    .hero-content h1 { font-size: 24px; }
+    .btn { padding: 10px 20px; }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Festiva - Contact Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Festiva</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <section class="page-header fade-in">
+        <h1 class="glow">Contact Us</h1>
+        <p>We would love to hear from you</p>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="festivals">
+        <div style="max-width:500px; margin:auto; background:#1E293B; padding:30px; border-radius:15px;">
+
+            <!-- ✅ Added onsubmit -->
+            <form onsubmit="sendMail(event)">
+
+                <!-- ✅ Added id -->
+                <input type="text" id="name" placeholder="Your Name" required
+                style="width:100%; padding:12px; margin-bottom:15px; border:none; border-radius:8px;">
+
+                <!-- ✅ Added id -->
+                <input type="email" id="email" placeholder="Your Email" required
+                style="width:100%; padding:12px; margin-bottom:15px; border:none; border-radius:8px;">
+
+                <!-- ✅ Added id -->
+                <textarea id="message" placeholder="Your Message" rows="4" required
+                style="width:100%; padding:12px; margin-bottom:15px; border:none; border-radius:8px;"></textarea>
+
+                <button type="submit" class="btn" style="width:100%;">
+                    Send Message
+                </button>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Festiva | All Rights Reserved</p>
+    </footer>
+
+    <script src="assets/js/animations.js"></script>
+
+    <!-- ✅ EmailJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        (function(){
+            emailjs.init("MRzqefL8AGmBVre28"); 
+        })();
+
+        function sendMail(event){
+            event.preventDefault();
+
+            emailjs.send("service_mr5bo3a","template_c61qw64",{
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            })
+            .then(function(response){
+                alert("Email Sent Successfully ✅");
+            }, function(error){
+                alert("Failed ❌");
+                console.log(error);
+            });
+        }
+    </script>
+
+</body>
+</html>
